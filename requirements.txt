@@ -1,0 +1,15 @@
+streamlit==1.38.0
+faiss-cpu
+pymupdf
+python-docx
+pydantic
+rank-bm25
+plotly
+pandas
+numpy<2.3.0
+httpx
+aiosqlite
+python-dotenv
+edge-tts
+SpeechRecognition
+pydub
