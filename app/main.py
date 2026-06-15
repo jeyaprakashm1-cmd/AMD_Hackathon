@@ -1,27 +1,22 @@
-"""Main Streamlit Entry Point."""
-import sys
-from pathlib import Path
-sys.path.append(str(Path(__file__).resolve().parent.parent))
+from app.ui.components.sidebar import render_sidebar
 
-import streamlit as st
+from app.ui.pages.dashboard import show_dashboard
+from app.ui.pages.resume_upload import show_resume_upload
+from app.ui.pages.interview import show_interview
+from app.ui.pages.evaluation import show_results
+from app.ui.pages.settings import show_settings
 
-st.set_page_config(page_title="AI Interviewer", layout="wide")
+# Get selected page
+page = render_sidebar()
 
-from app.ui.styles.theme import apply_custom_theme
-
-# Apply global theme
-apply_custom_theme()
-
-# Define navigation
-pages = {
-    "Navigation": [
-        st.Page("ui/pages/dashboard.py", title="Dashboard", icon="📊", default=True),
-        st.Page("ui/pages/resume_upload.py", title="Upload Resume", icon="📄"),
-        st.Page("ui/pages/interview.py", title="Active Interview", icon="🎙️"),
-        st.Page("ui/pages/evaluation.py", title="Results", icon="📈"),
-        st.Page("ui/pages/settings.py", title="Settings", icon="⚙️"),
-    ]
-}
-
-pg = st.navigation(pages)
-pg.run()
+# Routing logic
+if page == "Dashboard":
+    show_dashboard()
+elif page == "Upload Resume":
+    show_resume_upload()
+elif page == "Active Interview":
+    show_interview()
+elif page == "Results":
+    show_results()
+elif page == "Settings":
+    show_settings()
