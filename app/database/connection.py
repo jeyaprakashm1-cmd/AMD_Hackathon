@@ -7,8 +7,9 @@ from contextlib import contextmanager
 from pathlib import Path
 from typing import Generator
 
-from app.config import settings
-from app.utils.logger import get_db_logger
+# ✅ FIXED (removed "app.")
+from config import settings
+from utils.logger import get_db_logger
 
 logger = get_db_logger()
 
