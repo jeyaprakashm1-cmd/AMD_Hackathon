@@ -5,13 +5,14 @@ CRUD operations for the AI Interviewer database.
 import json
 from typing import Optional
 
-from app.database.connection import get_db
-from app.database.models import (
+# ✅ FIXED IMPORTS (removed "app.")
+from database.connection import get_db
+from database.models import (
     Resume, InterviewSession, Question, Answer,
     Evaluation, CodingSubmission, FeedbackReport, AgentLog,
 )
-from app.utils.helpers import generate_id, now_utc
-from app.utils.logger import get_db_logger
+from utils.helpers import generate_id, now_utc
+from utils.logger import get_db_logger
 
 logger = get_db_logger()
 
